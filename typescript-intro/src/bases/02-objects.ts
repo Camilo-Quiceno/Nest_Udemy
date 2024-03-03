@@ -6,10 +6,12 @@ interface Pokemon {
     age: number | undefined;
 }
 
-export const pokemon:Pokemon = { 
+export const pikachu:Pokemon = { 
     name: 'Pikachu', 
     id: 25, 
     age: 1
 };
 
-export const pokemons = [];
+export const pokemons: Pokemon[] = []; //Array of pokemons
+
+pokemons.push(pikachu);
