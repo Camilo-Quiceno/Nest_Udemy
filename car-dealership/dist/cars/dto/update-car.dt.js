@@ -9,17 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateCarDto = void 0;
+exports.UpdateCarDto = void 0;
 const class_validator_1 = require("class-validator");
-class CreateCarDto {
+class UpdateCarDto {
 }
-exports.CreateCarDto = CreateCarDto;
-__decorate([
-    (0, class_validator_1.IsString)({ message: 'Brand must be a string' }),
-    __metadata("design:type", String)
-], CreateCarDto.prototype, "brand", void 0);
+exports.UpdateCarDto = UpdateCarDto;
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsUUID)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
-], CreateCarDto.prototype, "model", void 0);
-//# sourceMappingURL=create-car.dto.js.map
+], UpdateCarDto.prototype, "id", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)({ message: 'Brand must be a string' }),
+    __metadata("design:type", String)
+], UpdateCarDto.prototype, "brand", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], UpdateCarDto.prototype, "model", void 0);
+//# sourceMappingURL=update-car.dt.js.map

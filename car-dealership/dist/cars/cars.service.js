@@ -39,6 +39,36 @@ let CarsService = class CarsService {
         }
         return car;
     }
+    create(CreateCarDto) {
+        const newCar = {
+            id: (0, uuid_1.v4)(),
+            brand: CreateCarDto.brand,
+            model: CreateCarDto.model,
+        };
+        this.cars.push(newCar);
+        return newCar;
+    }
+    update(id, updateCarDto) {
+        let carDB = this.findOneById(id);
+        if (updateCarDto.id && updateCarDto.id !== id) {
+            throw new common_1.BadRequestException('Cannot change car id');
+        }
+        this.cars = this.cars.map((car) => {
+            if (car.id === id) {
+                carDB = {
+                    ...car,
+                    ...updateCarDto,
+                    id,
+                };
+            }
+            return car;
+        });
+        return carDB;
+    }
+    delete(id) {
+        const car = this.findOneById(id);
+        this.cars = this.cars.filter((car) => car.id !== id);
+    }
 };
 exports.CarsService = CarsService;
 exports.CarsService = CarsService = __decorate([
