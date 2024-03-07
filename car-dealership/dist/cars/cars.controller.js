@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CarsController = void 0;
 const common_1 = require("@nestjs/common");
 const cars_service_1 = require("./cars.service");
+const create_car_dto_1 = require("./dto/create-car.dto");
 let CarsController = class CarsController {
     constructor(carsService) {
         this.carsService = carsService;
@@ -26,8 +27,8 @@ let CarsController = class CarsController {
         console.log({ id });
         return this.carsService.findOneById(id);
     }
-    createCar(body) {
-        return body;
+    createCar(createCarDTO) {
+        return createCarDTO;
     }
     updateCar(id, body) {
         return body;
@@ -48,16 +49,16 @@ __decorate([
 ], CarsController.prototype, "getAllCars", null);
 __decorate([
     (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(0, (0, common_1.Param)('id', common_1.ParseUUIDPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], CarsController.prototype, "getCarById", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [create_car_dto_1.CreateCarDto]),
     __metadata("design:returntype", void 0)
 ], CarsController.prototype, "createCar", null);
 __decorate([
