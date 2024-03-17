@@ -53,6 +53,9 @@ let BrandsService = class BrandsService {
     remove(id) {
         this.brands = this.brands.filter((brand) => brand.id !== id);
     }
+    fillBrandsWithSeedData(brands) {
+        this.brands = brands;
+    }
 };
 exports.BrandsService = BrandsService;
 exports.BrandsService = BrandsService = __decorate([

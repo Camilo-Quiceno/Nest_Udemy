@@ -11,23 +11,7 @@ const common_1 = require("@nestjs/common");
 const uuid_1 = require("uuid");
 let CarsService = class CarsService {
     constructor() {
-        this.cars = [
-            {
-                id: (0, uuid_1.v4)(),
-                brand: 'Toyota',
-                model: 'Corolla',
-            },
-            {
-                id: (0, uuid_1.v4)(),
-                brand: 'BMW',
-                model: 'X5',
-            },
-            {
-                id: (0, uuid_1.v4)(),
-                brand: 'Renault',
-                model: 'Clio',
-            },
-        ];
+        this.cars = [];
     }
     findAll() {
         return this.cars;
@@ -68,6 +52,9 @@ let CarsService = class CarsService {
     delete(id) {
         const car = this.findOneById(id);
         this.cars = this.cars.filter((car) => car.id !== id);
+    }
+    fillCarsWithSeedData(cars) {
+        this.cars = cars;
     }
 };
 exports.CarsService = CarsService;

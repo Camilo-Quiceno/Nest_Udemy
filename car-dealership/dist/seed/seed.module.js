@@ -10,6 +10,8 @@ exports.SeedModule = void 0;
 const common_1 = require("@nestjs/common");
 const seed_service_1 = require("./seed.service");
 const seed_controller_1 = require("./seed.controller");
+const cars_module_1 = require("../cars/cars.module");
+const brands_module_1 = require("../brands/brands.module");
 let SeedModule = class SeedModule {
 };
 exports.SeedModule = SeedModule;
@@ -17,6 +19,7 @@ exports.SeedModule = SeedModule = __decorate([
     (0, common_1.Module)({
         controllers: [seed_controller_1.SeedController],
         providers: [seed_service_1.SeedService],
+        imports: [cars_module_1.CarsModule, brands_module_1.BrandsModule],
     })
 ], SeedModule);
 //# sourceMappingURL=seed.module.js.map

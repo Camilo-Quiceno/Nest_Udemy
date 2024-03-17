@@ -8,4 +8,5 @@ export declare class BrandsService {
     findOne(id: string): Brand;
     update(id: string, updateBrandDto: UpdateBrandDto): void;
     remove(id: string): void;
+    fillBrandsWithSeedData(brands: Brand[]): void;
 }
