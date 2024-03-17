@@ -9,7 +9,7 @@ import { UpdateBrandDto } from './dto/update-brand.dto';
 export class BrandsService {
   private brands: Brand[] = [
     {
-      id: uud,
+      id: uud(),
       name: 'Toyota',
       createdAt: new Date().getTime(),
     },
@@ -41,7 +41,7 @@ export class BrandsService {
   }
 
   update(id: string, updateBrandDto: UpdateBrandDto) {
-    let brandDB = this.findOne (id);
+    let brandDB = this.findOne(id);
     this.brands = this.brands.map((brand) => {
       if (brand.id === id) {
         brand.updatedAt = new Date().getTime();

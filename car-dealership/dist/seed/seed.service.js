@@ -6,20 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.SeedService = void 0;
 const common_1 = require("@nestjs/common");
-const cars_module_1 = require("./cars/cars.module");
-const brands_module_1 = require("./brands/brands.module");
-const seed_module_1 = require("./seed/seed.module");
-let AppModule = class AppModule {
+let SeedService = class SeedService {
+    populateDB() {
+        return 'This action adds all the data to the database';
+    }
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [cars_module_1.CarsModule, brands_module_1.BrandsModule, seed_module_1.SeedModule],
-        controllers: [],
-        providers: [],
-        exports: [],
-    })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+exports.SeedService = SeedService;
+exports.SeedService = SeedService = __decorate([
+    (0, common_1.Injectable)()
+], SeedService);
+//# sourceMappingURL=seed.service.js.map
