@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+pokedex/mongo/
 
 # IDE
 /.idea
