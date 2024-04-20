@@ -7,6 +7,7 @@ import { UpdateBrandDto } from './dto/update-brand.dto';
 
 @Injectable()
 export class BrandsService {
+  private brands: Brand[] = [];
   //private brands: Brand[] = [
   //{
   //id: uud(),
