@@ -10,15 +10,19 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Pokemon } from './entities/pokemon.entity';
 import { Model, isValidObjectId } from 'mongoose';
 import { PaginationDto } from '../common/dto/pagination.dto';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name) private pokemonModel: Model<Pokemon>,
-  ) {}
+    private readonly configService: ConfigService,
+  ) {
+    console.log(configService.get('mongodb'));
+  }
 
   async create(createPokemonDto: CreatePokemonDto) {
-    createPokemonDto.name = createPokemonDto.name.toLowerCase();
+    createPokemonDto.name = createPokemonDto.name.toLowerCase(); 
     try {
       const pokemon = await this.pokemonModel.create(createPokemonDto);
       return pokemon;
